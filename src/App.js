@@ -4,6 +4,15 @@ import { useState } from "react";
 
 function App() {
   const [contacts, setContacts] = useState(contactsData.slice(0, 5));
+
+  const deleteContact = (id) => {
+    console.log(id);
+    let updatedArray = contacts.filter((eachContact) => {
+      return eachContact.id !== id;
+    });
+    setContacts([...updatedArray]);
+  };
+
   const contactTable = contacts.map((eachContact) => {
     let imageUrl = eachContact.pictureUrl;
     return (
@@ -15,6 +24,9 @@ function App() {
         <td>{eachContact.popularity}</td>
         <td>{eachContact.wonOscar ? "🏆" : ""}</td>
         <td>{eachContact.wonEmmy ? "🏆" : ""}</td>
+        <td>
+          <button onClick={() => deleteContact(eachContact.id)}>🗑️</button>
+        </td>
       </tr>
     );
   });
@@ -25,7 +37,6 @@ function App() {
       contactArray[
         Math.floor(Math.random() * (contactsData.length - contacts.length))
       ];
-    console.log(newContact);
     setContacts(contacts.concat(newContact));
   };
 
@@ -61,6 +72,7 @@ function App() {
             <th>Popularity</th>
             <th>Won Oscar</th>
             <th>Won Emmy</th>
+            <th>Actions</th>
           </tr>
         </thead>
 
