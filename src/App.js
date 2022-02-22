@@ -4,8 +4,6 @@ import { useState } from "react";
 
 function App() {
   const [contacts, setContacts] = useState(contactsData.slice(0, 5));
-  console.log(contacts);
-
   const contactTable = contacts.map((eachContact) => {
     let imageUrl = eachContact.pictureUrl;
     return (
@@ -31,10 +29,30 @@ function App() {
     setContacts(contacts.concat(newContact));
   };
 
+  const sortPopularity = () => {
+    let sortedArray = contacts.sort((a, b) => {
+      return b.popularity - a.popularity;
+    });
+    setContacts([...sortedArray]);
+  };
+
+  const sortName = () => {
+    let sortedArray = contacts.sort((a, b) => {
+      if (a.name < b.name) {
+        return -1;
+      } else {
+        return 1;
+      }
+    });
+    setContacts([...sortedArray]);
+  };
+
   return (
     <div className="App">
       <h1>Iron contacts</h1>
       <button onClick={randomContact}>Add Random Contact</button>
+      <button onClick={sortPopularity}>Sort by Popularity</button>
+      <button onClick={sortName}>Sort by Name</button>
       <table>
         <thead>
           <tr>
