@@ -37,7 +37,21 @@ function App() {
   });
 
   const randomContact = () => {
-    let contactArray = contactsData.slice(contacts.length);
+    let contactArray = [];
+    let isInContacts = false;
+    for (let i = 0; i < contactsData.length; i++) {
+      for (let j = 0; j < contacts.length; j++) {
+        if (contactsData[i].id === contacts[j].id) {
+          isInContacts = true;
+        }
+      }
+      if (!isInContacts) {
+        contactArray.push(contactsData[i]);
+      }
+      isInContacts = false;
+    }
+    console.log(contactArray);
+
     let newContact =
       contactArray[
         Math.floor(Math.random() * (contactsData.length - contacts.length))
