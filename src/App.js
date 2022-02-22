@@ -23,7 +23,7 @@ function App() {
         <td>{eachContact.name}</td>
         <td>{eachContact.popularity}</td>
         <td>{eachContact.wonOscar ? "🏆" : ""}</td>
-        <td>{eachContact.wonEmmy ? "🏆" : ""}</td>
+        <td>{eachContact.wonEmmy ? "🌟" : ""}</td>
         <td>
           <button
             className="delete-btn"
@@ -50,7 +50,6 @@ function App() {
       }
       isInContacts = false;
     }
-    console.log(contactArray);
 
     let newContact =
       contactArray[
