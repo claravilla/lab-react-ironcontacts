@@ -6,7 +6,6 @@ function App() {
   const [contacts, setContacts] = useState(contactsData.slice(0, 5));
 
   const deleteContact = (id) => {
-    console.log(id);
     let updatedArray = contacts.filter((eachContact) => {
       return eachContact.id !== id;
     });
