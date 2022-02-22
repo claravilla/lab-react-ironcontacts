@@ -25,7 +25,12 @@ function App() {
         <td>{eachContact.wonOscar ? "🏆" : ""}</td>
         <td>{eachContact.wonEmmy ? "🏆" : ""}</td>
         <td>
-          <button onClick={() => deleteContact(eachContact.id)}>🗑️</button>
+          <button
+            className="delete-btn"
+            onClick={() => deleteContact(eachContact.id)}
+          >
+            🗑️
+          </button>
         </td>
       </tr>
     );
