@@ -15,18 +15,23 @@ function App() {
         </td>
         <td>{eachContact.name}</td>
         <td>{eachContact.popularity}</td>
+        <td>{eachContact.wonOscar ? "🏆" : ""}</td>
+        <td>{eachContact.wonEmmy ? "🏆" : ""}</td>
       </tr>
     );
   });
 
   return (
     <div className="App">
+      <h1>Iron contacts</h1>
       <div>
         <table>
           <thead>
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
+            <th>Won Oscar</th>
+            <th>Won Emmy</th>
           </thead>
           <tbody>{contactTable}</tbody>
         </table>
